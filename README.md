@@ -56,7 +56,8 @@ a. 從 `D:\照片-活動\260425_CT226` 內，挑出 **20–30 張代表照**，�
 | `02-threshold-b.jpg` | 啟程 — 訓練/賽前 (橫幅) |
 | `03-ordeal-swim.jpg` | 試煉 — 游泳 |
 | `03-ordeal-bike.jpg` | 試煉 — 單車 |
-| `03-ordeal-run.jpg` | 試煉 — 路跑 |
+| `03-ordeal-run-a.jpg` | 試煉 — 路跑 (跑前 · 自信，**直幅**) |
+| `03-ordeal-run-b.jpg` | 試煉 — 路跑 (跑後 · 崩潰，**直幅**) |
 | `04-transformation.jpg` | 轉變 — 比賽中最猙獰 / 最有戲那張 |
 | `05-return-finish.jpg` | 凱旋 — 衝線 |
 | `05-return-medal.jpg` | 凱旋 — 獎牌 / 完賽合照 |

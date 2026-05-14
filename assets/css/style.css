@@ -77,7 +77,7 @@ a:hover { text-decoration: underline; }
   .toc { display: none; }
 }
 
-/* ===== Hero ===== */
+/* ===== Hero (單車照片半透明破題) ===== */
 .hero {
   position: relative;
   min-height: 100vh;
@@ -87,7 +87,7 @@ a:hover { text-decoration: underline; }
   align-items: center;
   text-align: center;
   color: #fff;
-  background: linear-gradient(135deg, #7c2d12 0%, #c2410c 50%, #ea580c 100%);
+  background: linear-gradient(135deg, #1a0f08 0%, #3d1f0a 50%, #5c2b0f 100%);
   overflow: hidden;
 }
 .hero-bg {
@@ -96,14 +96,31 @@ a:hover { text-decoration: underline; }
   width: 100%;
   height: 100%;
   object-fit: cover;
-  opacity: 0.45;
-  filter: saturate(1.1);
+  opacity: 0.7;
+  filter: saturate(1.05);
+}
+/* 上下漸層遮罩，讓文字可讀但中段照片清楚 */
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(
+      180deg,
+      rgba(0, 0, 0, 0.55) 0%,
+      rgba(0, 0, 0, 0.15) 35%,
+      rgba(0, 0, 0, 0.15) 65%,
+      rgba(0, 0, 0, 0.55) 100%
+    );
+  z-index: 1;
+  pointer-events: none;
 }
 .hero-overlay {
   position: relative;
-  z-index: 1;
+  z-index: 2;
   padding: 0 24px;
   max-width: 900px;
+  text-shadow: 0 2px 12px rgba(0, 0, 0, 0.6);
 }
 .hero .kicker {
   font-family: var(--font-mono);
@@ -289,6 +306,91 @@ a:hover { text-decoration: underline; }
   color: var(--color-muted);
   text-align: center;
 }
+
+/* 雙照片並排 (用在跑前 vs 跑後對照組) */
+.photo-pair {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  align-items: start;
+}
+.photo-pair .photo {
+  margin: 0;
+}
+.photo-pair .photo img {
+  aspect-ratio: 3 / 4;
+  object-fit: cover;
+  width: 100%;
+}
+.photo-pair .photo figcaption {
+  font-size: 12px;
+  margin-top: 8px;
+  font-weight: 500;
+  color: var(--color-text-soft);
+}
+.photo-pair .photo-missing::before {
+  padding: 60px 12px;
+  font-size: 12px;
+}
+
+/* 章節大圖：滿版照片，文字在下方 (例：凱旋衝線) */
+.photo-hero {
+  margin: 0 auto 56px;
+  max-width: var(--maxw-wide);
+  cursor: zoom-in;
+}
+.photo-hero img {
+  width: 100%;
+  border-radius: 6px;
+  box-shadow: 0 16px 48px rgba(31, 29, 26, 0.18);
+}
+.photo-hero figcaption {
+  margin-top: 14px;
+  font-size: 13px;
+  color: var(--color-muted);
+  text-align: center;
+}
+.photo-hero.photo-missing img { display: none; }
+.photo-hero.photo-missing::before {
+  content: "📷 等候衝線大圖中…";
+  display: block;
+  padding: 160px 20px;
+  text-align: center;
+  background: var(--color-bg-alt);
+  border: 2px dashed var(--color-line);
+  border-radius: 6px;
+  color: var(--color-muted);
+  font-size: 14px;
+}
+
+/* 獨立敘事段落 (用在大圖下方的長文字) */
+.narrative {
+  max-width: var(--maxw-text);
+  margin: 0 auto 48px;
+}
+.narrative h3 {
+  font-family: var(--font-serif);
+  font-size: 26px;
+  font-weight: 600;
+  line-height: 1.4;
+  margin: 0 0 20px;
+  color: var(--color-text);
+}
+.narrative p {
+  margin: 0 0 18px;
+}
+
+/* 強調段 (用在召喚章的目標宣言) */
+.emphasis {
+  background: var(--color-accent-soft);
+  border-left: 4px solid var(--color-accent);
+  padding: 18px 22px;
+  border-radius: 4px;
+  margin: 28px 0 !important;
+  font-weight: 500;
+  line-height: 1.9;
+}
+.emphasis strong { color: var(--color-accent); }
 
 /* ===== Placeholder 草稿提示 ===== */
 .placeholder {
