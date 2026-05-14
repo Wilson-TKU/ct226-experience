@@ -1,0 +1,32 @@
+# --- 照片原檔 (不進倉庫) ---
+photos/raw/*
+!photos/raw/.gitkeep
+
+# --- 壓縮檔 ---
+*.zip
+*.rar
+*.7z
+
+# --- 系統 ---
+.DS_Store
+Thumbs.db
+desktop.ini
+ehthumbs.db
+$RECYCLE.BIN/
+
+# --- 編輯器 / IDE / Claude Code ---
+.vscode/
+.idea/
+.claude/
+*.swp
+*~
+
+# --- Node (萬一日後加 build) ---
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# --- 本機 / 暫存 ---
+*.local
+.cache/
